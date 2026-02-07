@@ -31,10 +31,20 @@
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="{% block body_class %}{% endblock %} container mx-auto">
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+        {% include "partials/navbar.html" %}
+
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+
+        <main class="px-4 py-8">
+            {% block content %}{% endblock %}
+        </main>
+
+        {% include "partials/footer.html" %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/dunavit.min.js' %}"></script>

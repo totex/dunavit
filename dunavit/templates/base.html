@@ -29,22 +29,52 @@
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
         {% endblock %}
+
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+        
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#019863",
+                            "background-light": "#f5f8f7",
+                            "background-dark": "#0f231c",
+                            "deep-green": "#2E4636",
+                            "off-white": "#FDFDFC",
+                            },
+                        fontFamily: {
+                        display: "Public Sans",
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.25rem",
+                            lg: "0.5rem",
+                            xl: "0.75rem",
+                            full: "9999px",
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <style>
+            body {
+                min-height: max(884px, 100dvh);
+            }
+        </style>
     </head>
 
-    <body class="{% block body_class %}{% endblock %} container mx-auto">
+    <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% include "partials/navbar.html" %}
-
-        <header>
-            {% block header %}{% endblock %}
-        </header>
-
-        <main class="px-4 py-8">
+        <div class="flex flex-col min-h-screen">
+            {% include "partials/navbar.html" %}
             {% block content %}{% endblock %}
-        </main>
-
-        {% include "partials/footer.html" %}
+            {% include "partials/footer.html" %}
+        </div>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/dunavit.min.js' %}"></script>

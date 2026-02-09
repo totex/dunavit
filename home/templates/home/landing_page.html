@@ -1,7 +1,343 @@
-{% load i18n wagtailcore_tags %}
+<main class="flex-grow">
+    {% comment %} Hero {% endcomment %}
+  <div
+    class="relative flex h-auto w-full flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden"
+    style="font-family: &quot;Public Sans&quot;, &quot;Noto Sans&quot;, sans-serif;">
+    <div class="@container">
+      <div class="@[480px]:p-4">
+        <div
+          class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
+          data-alt="A lush green forest with sunbeams shining through the trees."
+          style="
+            background-image:
+              linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%),
+              url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCF6teR2m-f5I3t0XHzRpNWPDYgDS5KA1FTBmD3IdpknDRBlr-9mefPxjSMGqG3vk5gavkwaia3QyhiUbgCEHOvsfVq3NMVAc8OYM7CmceZyszKnm6J5AcBMQs64Elr28qn5egLwCb4nhRqzg9bTx_JS9EXwhe9Dfa7P1OSl3mmwNvZ9EqX_sgZGqmb-PeMVf2lYqHfpK9O9mcI5KRZ-U9MMIQuc1ZhG2IjURd8io9RDiN-gYhh6i-FFe_n8_wGgQzyiN9Hs6cUkzCe&quot;);
+          "
+        >
+          <div class="flex flex-col gap-2 text-center">
+            <h1
+              class="text-off-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+            >
+              Protecting Our Planet, One Habitat at a Time
+            </h1>
+            <h2
+              class="text-off-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
+            >
+              Dunavit is dedicated to preserving and restoring natural habitats
+              for the well-being of our planet and future generations.
+            </h2>
+          </div>
+          <div class="flex-wrap gap-3 flex justify-center">
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90"
+            >
+              <span class="truncate">Donate Now</span>
+            </button>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-off-white text-deep-green text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-off-white/90"
+            >
+              <span class="truncate">Learn More</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  {% comment %} Our Impact {% endcomment %}
+  <div class="bg-background-light dark:bg-background-dark py-16">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
+          <h1
+            class="text-deep-green dark:text-off-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+          >
+            Our Impact
+          </h1>
+          <p
+            class="text-deep-green dark:text-off-white/80 text-base font-normal leading-normal"
+          >
+            We are making a tangible difference in the fight to protect our
+            planet. Here's a glimpse of what we've achieved with the help of our
+            dedicated supporters.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="flex flex-col gap-3 rounded-lg border border-deep-green/20 dark:border-off-white/20 bg-off-white dark:bg-deep-green/20 p-6 text-center items-center"
+          >
+            <span
+              class="material-symbols-outlined text-4xl text-deep-green dark:text-primary"
+              >landscape</span
+            >
+            <div class="flex flex-col gap-1">
+              <h2
+                class="text-deep-green dark:text-off-white text-xl font-bold leading-tight"
+              >
+                1 Million+
+              </h2>
+              <p
+                class="text-deep-green/80 dark:text-off-white/80 text-sm font-normal leading-normal"
+              >
+                Acres of land protected
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-3 rounded-lg border border-deep-green/20 dark:border-off-white/20 bg-off-white dark:bg-deep-green/20 p-6 text-center items-center"
+          >
+            <span
+              class="material-symbols-outlined text-4xl text-deep-green dark:text-primary"
+              >pets</span
+            >
+            <div class="flex flex-col gap-1">
+              <h2
+                class="text-deep-green dark:text-off-white text-xl font-bold leading-tight"
+              >
+                50+
+              </h2>
+              <p
+                class="text-deep-green/80 dark:text-off-white/80 text-sm font-normal leading-normal"
+              >
+                Species saved from extinction
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-3 rounded-lg border border-deep-green/20 dark:border-off-white/20 bg-off-white dark:bg-deep-green/20 p-6 text-center items-center"
+          >
+            <span
+              class="material-symbols-outlined text-4xl text-deep-green dark:text-primary"
+              >groups</span
+            >
+            <div class="flex flex-col gap-1">
+              <h2
+                class="text-deep-green dark:text-off-white text-xl font-bold leading-tight"
+              >
+                25
+              </h2>
+              <p
+                class="text-deep-green/80 dark:text-off-white/80 text-sm font-normal leading-normal"
+              >
+                Communities empowered
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p class="text-2xl font-bold">Hello, world!</p>
+  {% comment %} More About Our Mission {% endcomment %}
+  <div class="bg-off-white dark:bg-deep-green/30 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="text-3xl font-bold text-deep-green dark:text-off-white mb-4 text-center"
+        >
+          More About Our Mission
+        </h2>
+        <p
+          class="text-deep-green/80 dark:text-off-white/80 text-base leading-relaxed"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p
+          class="text-deep-green/80 dark:text-off-white/80 text-base leading-relaxed mt-4"
+        >
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui ratione voluptatem sequi nesciunt.
+        </p>
+      </div>
+    </div>
+  </div>
 
+  {% comment %} Our Work {% endcomment %}
+  <div class="bg-background-light dark:bg-background-dark py-16">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col gap-10">
+        <div
+          class="flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+        >
+          <div class="flex flex-col gap-4 max-w-3xl">
+            <h1
+              class="text-deep-green dark:text-off-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+            >
+              Our Work
+            </h1>
+            <p
+              class="text-deep-green dark:text-off-white/80 text-base font-normal leading-normal"
+            >
+              Our conservation efforts span across various critical areas, from
+              protecting our forests to safeguarding marine life and empowering
+              local communities.
+            </p>
+          </div>
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-deep-green text-off-white dark:bg-off-white dark:text-deep-green text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit hover:opacity-90"
+          >
+            <span class="truncate">Explore Our Projects</span>
+          </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="flex flex-col gap-4">
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+              data-alt="A dense green forest seen from above"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDXDujUYYq5fLoEafmTYvCvbA8JeWXf18YBDxQh1jHUjhXhTXZiL7t8ExD2mvgIsh9Vwj6e5ApxaWVr2Vb58V3iAdDb2ZQlyXZrC3bYgVW6OzqqwkC5N-tishqXy39bNBFoNuXgDP4CtC6wwdJ2Zai50P_GiEsHPBpF--stgnJ4xGTrDNfdJbw7C2uqBRklZhxCVrWn8CZex1PLG4COV5E349knw34JjvCjA1cno-CgqVBNWXBwRMhIXpnTdFDkUV_gj_PoGgXxl1hM&quot;);
+              "
+            ></div>
+            <div>
+              <h2
+                class="text-deep-green dark:text-off-white text-lg font-bold leading-normal"
+              >
+                Forest Conservation
+              </h2>
+              <p
+                class="text-deep-green/80 dark:text-off-white/80 text-sm font-normal leading-normal"
+              >
+                Preserving the lungs of our planet.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+              data-alt="A sea turtle swimming in a clear blue ocean"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAe6uG_9YUOuIIsDOQ1Skel_GscD3GkOWo3a7Sh9u5HK3-_4BwMvlqV915ov06XM-CcE8QBgPUCLK1ExelABmRVGtAuG8wKnioOCT7iVMkNIXl25Dti3F3ffwagPOZXjybfUBQKozSbJDxDXsoPFxhNmqhru435y53M3t6Utcju_ZhYv6g4V6oBOL4BhJOirovhAHW3I-FEx_Ue_3j1XsZexlAHvRzQUd24ASwz1ZllLaj8CQui4v4z3yLMwNnQW7zAQNlTmyr_jNfr&quot;);
+              "
+            ></div>
+            <div>
+              <h2
+                class="text-deep-green dark:text-off-white text-lg font-bold leading-normal"
+              >
+                Marine Life Protection
+              </h2>
+              <p
+                class="text-deep-green/80 dark:text-off-white/80 text-sm font-normal leading-normal"
+              >
+                Protecting our oceans and their inhabitants.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+              data-alt="A deer walking on a path in a forest"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDDMEFf23a4-SEhYJjWCpRJuZHYIBX-1ce_hOBz6J78b290eyDioBI79Uxh9B8oNSjkIwtfT5G9ImbgU4IsgEQ4E0PeC6_CR9uAKxLwTK0lj4VJu9BtBUxfzM4PMTsyy7IyYuc_1lWgbhboCqjsw5gJJp4mSFvFxsUPvgCKPzaEV4eJxHyRyzx31Sycq7-_eEspvY75c1pA0TX-1i3dBq-o6A5JE2Vfyhp56TPffPO5KMf0aXcJbfIPng3j-MyzHvmKebVBT8YD4BsG&quot;);
+              "
+            ></div>
+            <div>
+              <h2
+                class="text-deep-green dark:text-off-white text-lg font-bold leading-normal"
+              >
+                Wildlife Corridors
+              </h2>
+              <p
+                class="text-deep-green/80 dark:text-off-white/80 text-sm font-normal leading-normal"
+              >
+                Creating safe passages for wildlife.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+              data-alt="A group of people planting trees in a field"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDqPNhvlGSKEx0vRxXiRQQ74s5YGXeP9DjqZL_bU1DnIhmHLqgb998xq7d9a43Mto_sFi1d9DefydaDRbPdwejwEx9zsxikCbJdngdtG-VHXXAe93iquBEjwe_0aFA8ahHHTlcyzFuV815jJ5KJKAlna0Bo2kfLtG7P9hKWH_2e7M1ivJAFkeaVnPiAIvGs_1NgwuyP8GkjIufbUBdU71zAg_qyJicsOr1XRnqaO2KrUJCIN9bLTHUqUTnTcM7RiAwAPjibTv4FaLSM&quot;);
+              "
+            ></div>
+            <div>
+              <h2
+                class="text-deep-green dark:text-off-white text-lg font-bold leading-normal"
+              >
+                Community Engagement
+              </h2>
+              <p
+                class="text-deep-green/80 dark:text-off-white/80 text-sm font-normal leading-normal"
+              >
+                Empowering local communities for a sustainable future.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  {% comment %} Testimonials {% endcomment %}
+  <div class="bg-off-white dark:bg-deep-green/30 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <p
+          class="text-deep-green dark:text-off-white text-2xl font-light leading-relaxed italic"
+        >
+          "Dunavit's work is a beacon of hope for our planet. Their dedication
+          to conservation is truly inspiring and I'm proud to be a supporter."
+        </p>
+        <p class="mt-4 text-deep-green dark:text-off-white/80 font-bold">
+          - Dr. Jane Goodall, Primatologist &amp; Anthropologist
+        </p>
+      </div>
+    </div>
+  </div>
 
+  {% comment %} Newsletter {% endcomment %}
+  <div class="bg-background-light dark:bg-background-dark">
+    <div class="container mx-auto">
+      <div
+        class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20"
+      >
+        <div class="flex flex-col gap-2 text-center max-w-3xl mx-auto">
+          <h1
+            class="text-deep-green dark:text-off-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+          >
+            Join the Movement
+          </h1>
+          <p
+            class="text-deep-green dark:text-off-white/80 text-base font-normal leading-normal"
+          >
+            Stay informed about our latest conservation efforts.
+          </p>
+        </div>
+        <div class="flex flex-1 justify-center">
+          <label
+            class="flex flex-col min-w-40 h-14 max-w-[480px] flex-1 @[480px]:h-16"
+          >
+            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+              <input
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-deep-green dark:text-off-white focus:outline-0 focus:ring-0 border-none bg-off-white dark:bg-deep-green/50 focus:border-none h-full placeholder:text-deep-green/50 dark:placeholder:text-off-white/50 px-4 rounded-r-none border-r-0 pr-2 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
+                placeholder="Enter your email address"
+                value=""
+              />
+              <div
+                class="flex items-center justify-center rounded-r-lg border-l-0 border-none bg-off-white dark:bg-deep-green/50 pr-2"
+              >
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90"
+                >
+                  <span class="truncate">Subscribe</span>
+                </button>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</main>

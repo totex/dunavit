@@ -1,2 +1,38 @@
 /* frontend/css/main.css */
 @import "tailwindcss";
+
+/* 1. Register Plugins */
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+/* 2. Your Theme Configuration */
+@theme {
+  /* v4 handles 'extend' automatically; just define the value */
+  --scroll-behavior-smooth: smooth;
+}
+
+@layer base {
+  html {
+    scroll-smooth: always; /* or simply use the standard CSS below */
+    scroll-behavior: smooth;
+  }
+}
+
+
+@theme {
+  /* Colors */
+  --color-primary: #019863;
+  --color-background-light: #f5f8f7;
+  --color-background-dark: #0f231c;
+  --color-deep-green: #2E4636;
+  --color-off-white: #FDFDFC;
+
+  /* Fonts */
+  --font-display: "Public Sans", sans-serif;
+
+  /* Border radius */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}

@@ -10,6 +10,7 @@ python manage.py migrate
 python manage.py runserver
 
 # when changing the HTML and CSS
+npm install @tailwindcss/vite
 npm run dev
 
 # create admin user

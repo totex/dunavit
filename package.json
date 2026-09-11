@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx vite build --watch",
+    "dev": "vite build --watch",
     "build": "vite build"
   },
   "keywords": [],

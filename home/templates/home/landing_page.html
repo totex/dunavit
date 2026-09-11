@@ -1,5 +1,7 @@
+{% load wagtailcore_tags %}
+
 <main class="flex-grow">
-    {% comment %} Hero {% endcomment %}
+  {% comment %} Hero {% endcomment %}
   <div
     class="relative flex h-auto w-full flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden"
     style="font-family: &quot;Public Sans&quot;, &quot;Noto Sans&quot;, sans-serif;">
@@ -7,24 +9,23 @@
       <div class="@[480px]:p-4">
         <div
           class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
-          data-alt="A lush green forest with sunbeams shining through the trees."
+          data-alt="{{ page.hero_image.title }}"
           style="
             background-image:
               linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%),
-              url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCF6teR2m-f5I3t0XHzRpNWPDYgDS5KA1FTBmD3IdpknDRBlr-9mefPxjSMGqG3vk5gavkwaia3QyhiUbgCEHOvsfVq3NMVAc8OYM7CmceZyszKnm6J5AcBMQs64Elr28qn5egLwCb4nhRqzg9bTx_JS9EXwhe9Dfa7P1OSl3mmwNvZ9EqX_sgZGqmb-PeMVf2lYqHfpK9O9mcI5KRZ-U9MMIQuc1ZhG2IjURd8io9RDiN-gYhh6i-FFe_n8_wGgQzyiN9Hs6cUkzCe&quot;);
+              url('{{ page.hero_image.file.url }}');
           "
         >
           <div class="flex flex-col gap-2 text-center">
             <h1
               class="text-off-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
             >
-              Protecting Our Planet, One Habitat at a Time
+              {{ page.hero_title }}
             </h1>
             <h2
               class="text-off-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
             >
-              Dunavit is dedicated to preserving and restoring natural habitats
-              for the well-being of our planet and future generations.
+              {{ page.hero_text }}
             </h2>
           </div>
           <div class="flex-wrap gap-3 flex justify-center">
@@ -51,79 +52,37 @@
       <div class="flex flex-col gap-10">
         <div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
           <h1
-            class="text-deep-green  tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+            class="text-deep-green tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
           >
             Our Impact
           </h1>
-          <p
-            class="text-deep-green  text-base font-normal leading-normal"
-          >
+          <p class="text-deep-green text-base font-normal leading-normal">
             We are making a tangible difference in the fight to protect our
             planet. Here's a glimpse of what we've achieved with the help of our
             dedicated supporters.
           </p>
         </div>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {% for item in page.impact_items.all %}
           <div
-            class="flex flex-col gap-3 rounded-lg border border-deep-green/20  bg-off-white  p-6 text-center items-center"
+            class="flex flex-col gap-3 rounded-lg border border-deep-green/20 bg-off-white p-6 text-center items-center"
           >
-            <span
-              class="material-symbols-outlined text-4xl text-deep-green "
-              >landscape</span
-            >
+            <span class="material-symbols-outlined text-4xl text-deep-green">
+              {{ item.icon }}
+            </span>
+
             <div class="flex flex-col gap-1">
-              <h2
-                class="text-deep-green  text-xl font-bold leading-tight"
-              >
-                1 Million+
+              <h2 class="text-deep-green text-xl font-bold leading-tight">
+                {{ item.value }}
               </h2>
-              <p
-                class="text-deep-green/80  text-sm font-normal leading-normal"
-              >
-                Acres of land protected
+
+              <p class="text-deep-green/80 text-sm font-normal leading-normal">
+                {{ item.description }}
               </p>
             </div>
           </div>
-          <div
-            class="flex flex-col gap-3 rounded-lg border border-deep-green/20  bg-off-white  p-6 text-center items-center"
-          >
-            <span
-              class="material-symbols-outlined text-4xl text-deep-green "
-              >pets</span
-            >
-            <div class="flex flex-col gap-1">
-              <h2
-                class="text-deep-green  text-xl font-bold leading-tight"
-              >
-                50+
-              </h2>
-              <p
-                class="text-deep-green/80  text-sm font-normal leading-normal"
-              >
-                Species saved from extinction
-              </p>
-            </div>
-          </div>
-          <div
-            class="flex flex-col gap-3 rounded-lg border border-deep-green/20  bg-off-white  p-6 text-center items-center"
-          >
-            <span
-              class="material-symbols-outlined text-4xl text-deep-green "
-              >groups</span
-            >
-            <div class="flex flex-col gap-1">
-              <h2
-                class="text-deep-green  text-xl font-bold leading-tight"
-              >
-                25
-              </h2>
-              <p
-                class="text-deep-green/80  text-sm font-normal leading-normal"
-              >
-                Communities empowered
-              </p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -133,32 +92,12 @@
   <div class="bg-off-white py-16 scroll-mt-20" id="about-us">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
-        <h2
-          class="text-3xl font-bold text-deep-green  mb-4 text-center"
-        >
-          More About Our Mission
+        <h2 class="text-3xl font-bold text-deep-green mb-4 text-center">
+          {{ page.mission_title }}
         </h2>
-        <p
-          class="text-deep-green/80  text-base leading-relaxed"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p
-          class="text-deep-green/80  text-base leading-relaxed mt-4"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt.
-        </p>
+        <div class="text-deep-green/80 text-base leading-relaxed space-y-4">
+          {{ page.mission_body|richtext  }}
+        </div>
       </div>
     </div>
   </div>
@@ -172,20 +111,18 @@
         >
           <div class="flex flex-col gap-4 max-w-3xl">
             <h1
-              class="text-deep-green  tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+              class="text-deep-green tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
             >
               Our Work
             </h1>
-            <p
-              class="text-deep-green  text-base font-normal leading-normal"
-            >
+            <p class="text-deep-green text-base font-normal leading-normal">
               Our conservation efforts span across various critical areas, from
               protecting our forests to safeguarding marine life and empowering
               local communities.
             </p>
           </div>
           <button
-            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-deep-green text-off-white   text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit hover:opacity-90"
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-deep-green text-off-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit hover:opacity-90"
           >
             <span class="truncate">Explore Our Projects</span>
           </button>
@@ -200,14 +137,10 @@
               "
             ></div>
             <div>
-              <h2
-                class="text-deep-green  text-lg font-bold leading-normal"
-              >
+              <h2 class="text-deep-green text-lg font-bold leading-normal">
                 Forest Conservation
               </h2>
-              <p
-                class="text-deep-green/80  text-sm font-normal leading-normal"
-              >
+              <p class="text-deep-green/80 text-sm font-normal leading-normal">
                 Preserving the lungs of our planet.
               </p>
             </div>
@@ -221,14 +154,10 @@
               "
             ></div>
             <div>
-              <h2
-                class="text-deep-green  text-lg font-bold leading-normal"
-              >
+              <h2 class="text-deep-green text-lg font-bold leading-normal">
                 Marine Life Protection
               </h2>
-              <p
-                class="text-deep-green/80  text-sm font-normal leading-normal"
-              >
+              <p class="text-deep-green/80 text-sm font-normal leading-normal">
                 Protecting our oceans and their inhabitants.
               </p>
             </div>
@@ -242,14 +171,10 @@
               "
             ></div>
             <div>
-              <h2
-                class="text-deep-green  text-lg font-bold leading-normal"
-              >
+              <h2 class="text-deep-green text-lg font-bold leading-normal">
                 Wildlife Corridors
               </h2>
-              <p
-                class="text-deep-green/80  text-sm font-normal leading-normal"
-              >
+              <p class="text-deep-green/80 text-sm font-normal leading-normal">
                 Creating safe passages for wildlife.
               </p>
             </div>
@@ -263,14 +188,10 @@
               "
             ></div>
             <div>
-              <h2
-                class="text-deep-green  text-lg font-bold leading-normal"
-              >
+              <h2 class="text-deep-green text-lg font-bold leading-normal">
                 Community Engagement
               </h2>
-              <p
-                class="text-deep-green/80  text-sm font-normal leading-normal"
-              >
+              <p class="text-deep-green/80 text-sm font-normal leading-normal">
                 Empowering local communities for a sustainable future.
               </p>
             </div>
@@ -284,13 +205,11 @@
   <div class="bg-off-white py-16">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
-        <p
-          class="text-deep-green  text-2xl font-light leading-relaxed italic"
-        >
+        <p class="text-deep-green text-2xl font-light leading-relaxed italic">
           "Dunavit's work is a beacon of hope for our planet. Their dedication
           to conservation is truly inspiring and I'm proud to be a supporter."
         </p>
-        <p class="mt-4 text-deep-green  font-bold">
+        <p class="mt-4 text-deep-green font-bold">
           - Dr. Jane Goodall, Primatologist &amp; Anthropologist
         </p>
       </div>
@@ -305,13 +224,11 @@
       >
         <div class="flex flex-col gap-2 text-center max-w-3xl mx-auto">
           <h1
-            class="text-deep-green  tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+            class="text-deep-green tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
           >
             Join the Movement
           </h1>
-          <p
-            class="text-deep-green  text-base font-normal leading-normal"
-          >
+          <p class="text-deep-green text-base font-normal leading-normal">
             Stay informed about our latest conservation efforts.
           </p>
         </div>
@@ -321,12 +238,12 @@
           >
             <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
               <input
-                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-deep-green  focus:outline-0 focus:ring-0 border-none bg-off-white  focus:border-none h-full placeholder:text-deep-green/50  px-4 rounded-r-none border-r-0 pr-2 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-deep-green focus:outline-0 focus:ring-0 border-none bg-off-white focus:border-none h-full placeholder:text-deep-green/50 px-4 rounded-r-none border-r-0 pr-2 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
                 placeholder="Enter your email address"
                 value=""
               />
               <div
-                class="flex items-center justify-center rounded-r-lg border-l-0 border-none bg-off-white  pr-2"
+                class="flex items-center justify-center rounded-r-lg border-l-0 border-none bg-off-white pr-2"
               >
                 <button
                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90"
@@ -340,5 +257,4 @@
       </div>
     </div>
   </div>
-  
 </main>

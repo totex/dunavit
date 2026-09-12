@@ -24,6 +24,18 @@ class HomePage(Page):
 
     mission_body = RichTextField()
 
+    testimonial_quote = models.TextField()
+    testimonial_author = models.CharField(max_length=255)
+
+    newsletter_title = models.CharField(
+        max_length=255,
+        default="Join the Movement",
+    )
+
+    newsletter_text = models.TextField(
+        default="Stay informed about our latest conservation efforts.",
+    )
+
     content_panels = Page.content_panels + [
         FieldPanel("hero_title"),
         FieldPanel("hero_text"),
@@ -31,6 +43,11 @@ class HomePage(Page):
         InlinePanel("impact_items", label="Impact items"),
         FieldPanel("mission_title"),
         FieldPanel("mission_body"),
+        InlinePanel("work_items", label="Work items"),
+        FieldPanel("testimonial_quote"),
+        FieldPanel("testimonial_author"),
+        FieldPanel("newsletter_title"),
+        FieldPanel("newsletter_text"),
     ]
 
 
@@ -53,4 +70,28 @@ class ImpactItem(Orderable):
         FieldPanel("icon"),
         FieldPanel("value"),
         FieldPanel("description"),
+    ]
+
+
+class WorkItem(Orderable):
+    page = ParentalKey(
+        HomePage,
+        on_delete=models.CASCADE,
+        related_name="work_items",
+    )
+
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    panels = [
+        FieldPanel("title"),
+        FieldPanel("description"),
+        FieldPanel("image"),
     ]

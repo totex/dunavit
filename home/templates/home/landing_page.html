@@ -2,8 +2,7 @@
 
 <main class="flex-grow">
   {% comment %} Hero {% endcomment %}
-  <div
-    class="relative flex h-auto w-full flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden"
+  <div class="relative flex h-auto w-full flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden"
     style="font-family: &quot;Public Sans&quot;, &quot;Noto Sans&quot;, sans-serif;">
     <div class="@container">
       <div class="@[480px]:p-4">
@@ -96,7 +95,7 @@
           {{ page.mission_title }}
         </h2>
         <div class="text-deep-green/80 text-base leading-relaxed space-y-4">
-          {{ page.mission_body|richtext  }}
+          {{ page.mission_body|richtext }}
         </div>
       </div>
     </div>
@@ -128,74 +127,27 @@
           </button>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {% for item in page.work_items.all %}
           <div class="flex flex-col gap-4">
+            {% if item.image %}
             <div
               class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-              data-alt="A dense green forest seen from above"
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDXDujUYYq5fLoEafmTYvCvbA8JeWXf18YBDxQh1jHUjhXhTXZiL7t8ExD2mvgIsh9Vwj6e5ApxaWVr2Vb58V3iAdDb2ZQlyXZrC3bYgVW6OzqqwkC5N-tishqXy39bNBFoNuXgDP4CtC6wwdJ2Zai50P_GiEsHPBpF--stgnJ4xGTrDNfdJbw7C2uqBRklZhxCVrWn8CZex1PLG4COV5E349knw34JjvCjA1cno-CgqVBNWXBwRMhIXpnTdFDkUV_gj_PoGgXxl1hM&quot;);
-              "
+              data-alt="{{ item.image.title }}"
+              style="background-image: url('{{ item.image.file.url }}');"
             ></div>
+            {% endif %}
+
             <div>
               <h2 class="text-deep-green text-lg font-bold leading-normal">
-                Forest Conservation
+                {{ item.title }}
               </h2>
+
               <p class="text-deep-green/80 text-sm font-normal leading-normal">
-                Preserving the lungs of our planet.
+                {{ item.description }}
               </p>
             </div>
           </div>
-          <div class="flex flex-col gap-4">
-            <div
-              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-              data-alt="A sea turtle swimming in a clear blue ocean"
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAe6uG_9YUOuIIsDOQ1Skel_GscD3GkOWo3a7Sh9u5HK3-_4BwMvlqV915ov06XM-CcE8QBgPUCLK1ExelABmRVGtAuG8wKnioOCT7iVMkNIXl25Dti3F3ffwagPOZXjybfUBQKozSbJDxDXsoPFxhNmqhru435y53M3t6Utcju_ZhYv6g4V6oBOL4BhJOirovhAHW3I-FEx_Ue_3j1XsZexlAHvRzQUd24ASwz1ZllLaj8CQui4v4z3yLMwNnQW7zAQNlTmyr_jNfr&quot;);
-              "
-            ></div>
-            <div>
-              <h2 class="text-deep-green text-lg font-bold leading-normal">
-                Marine Life Protection
-              </h2>
-              <p class="text-deep-green/80 text-sm font-normal leading-normal">
-                Protecting our oceans and their inhabitants.
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div
-              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-              data-alt="A deer walking on a path in a forest"
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDDMEFf23a4-SEhYJjWCpRJuZHYIBX-1ce_hOBz6J78b290eyDioBI79Uxh9B8oNSjkIwtfT5G9ImbgU4IsgEQ4E0PeC6_CR9uAKxLwTK0lj4VJu9BtBUxfzM4PMTsyy7IyYuc_1lWgbhboCqjsw5gJJp4mSFvFxsUPvgCKPzaEV4eJxHyRyzx31Sycq7-_eEspvY75c1pA0TX-1i3dBq-o6A5JE2Vfyhp56TPffPO5KMf0aXcJbfIPng3j-MyzHvmKebVBT8YD4BsG&quot;);
-              "
-            ></div>
-            <div>
-              <h2 class="text-deep-green text-lg font-bold leading-normal">
-                Wildlife Corridors
-              </h2>
-              <p class="text-deep-green/80 text-sm font-normal leading-normal">
-                Creating safe passages for wildlife.
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div
-              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-              data-alt="A group of people planting trees in a field"
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDqPNhvlGSKEx0vRxXiRQQ74s5YGXeP9DjqZL_bU1DnIhmHLqgb998xq7d9a43Mto_sFi1d9DefydaDRbPdwejwEx9zsxikCbJdngdtG-VHXXAe93iquBEjwe_0aFA8ahHHTlcyzFuV815jJ5KJKAlna0Bo2kfLtG7P9hKWH_2e7M1ivJAFkeaVnPiAIvGs_1NgwuyP8GkjIufbUBdU71zAg_qyJicsOr1XRnqaO2KrUJCIN9bLTHUqUTnTcM7RiAwAPjibTv4FaLSM&quot;);
-              "
-            ></div>
-            <div>
-              <h2 class="text-deep-green text-lg font-bold leading-normal">
-                Community Engagement
-              </h2>
-              <p class="text-deep-green/80 text-sm font-normal leading-normal">
-                Empowering local communities for a sustainable future.
-              </p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -206,11 +158,10 @@
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
         <p class="text-deep-green text-2xl font-light leading-relaxed italic">
-          "Dunavit's work is a beacon of hope for our planet. Their dedication
-          to conservation is truly inspiring and I'm proud to be a supporter."
+          "{{ page.testimonial_quote }}"
         </p>
         <p class="mt-4 text-deep-green font-bold">
-          - Dr. Jane Goodall, Primatologist &amp; Anthropologist
+          - {{ page.testimonial_author }}
         </p>
       </div>
     </div>
@@ -226,10 +177,10 @@
           <h1
             class="text-deep-green tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
           >
-            Join the Movement
+            {{ page.newsletter_title }}
           </h1>
           <p class="text-deep-green text-base font-normal leading-normal">
-            Stay informed about our latest conservation efforts.
+            {{ page.newsletter_text }}
           </p>
         </div>
         <div class="flex flex-1 justify-center">

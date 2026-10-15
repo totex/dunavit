@@ -4,12 +4,13 @@
 <header class="sticky top-0 z-50 bg-background-light/80 backdrop-blur-sm border-b border-deep-green/10">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-[auto_1fr_auto] items-center gap-6 h-16">
-      <a class="text-2xl font-bold hover:text-primary text-deep-green" href="#top">DunaVit</a>
+      <a class="text-2xl font-bold hover:text-primary text-deep-green" href="{% if CURRENT_LANGUAGE == 'hu' %}/{% else %}/{{ CURRENT_LANGUAGE }}/{% endif %}">DunaVit</a>
 
       <nav class="hidden md:flex items-center justify-center gap-8 font-medium">
           <a class="hover:text-primary" href="#about-us">About Us</a>
           <a class="hover:text-primary" href="#our-work">Our Work</a>
           <a class="hover:text-primary" href="#get-involved">Get Involved</a>
+          <a class="hover:text-primary" href="{% if CURRENT_LANGUAGE == 'en' %}/en/projects/{% elif CURRENT_LANGUAGE == 'sk' %}/sk/projekty/{% else %}/projektek/{% endif %}">Projects</a>
       </nav>
 
       <div class="col-start-3 flex items-center gap-3">
@@ -62,6 +63,7 @@
           <a class="py-2 hover:text-primary" href="#about-us">About Us</a>
           <a class="py-2 hover:text-primary" href="#our-work">Our Work</a>
           <a class="py-2 hover:text-primary" href="#get-involved">Get Involved</a>
+          <a class="py-2 hover:text-primary" href="{% if CURRENT_LANGUAGE == 'en' %}/en/projects/{% elif CURRENT_LANGUAGE == 'sk' %}/sk/projekty/{% else %}/projektek/{% endif %}">Projects</a>
           <a class="mt-2 bg-primary text-white px-4 py-2 rounded-lg font-bold text-center hover:bg-primary/90" href="#">Donate</a>
       </nav>
   </div>

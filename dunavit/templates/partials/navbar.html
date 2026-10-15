@@ -1,3 +1,5 @@
+{% load i18n language_urls %}
+
 <header class="sticky top-0 z-50 bg-background-light/80 backdrop-blur-sm">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16">
@@ -10,6 +12,39 @@
       <a class="bg-primary text-white px-4 py-2 rounded-lg font-bold hover:bg-primary/90 hidden md:inline-block"
           href="#">Donate
       </a>
+      <details class="relative" id="language-dropdown">
+          {% get_current_language as CURRENT_LANGUAGE %}
+          <summary class="flex items-center gap-1 cursor-pointer list-none rounded-lg px-2 py-2 text-xl hover:bg-deep-green/10"
+              aria-label="Language">
+              <span>{% if CURRENT_LANGUAGE == 'sk' %}🇸🇰{% elif CURRENT_LANGUAGE == 'en' %}🇬🇧{% else %}🇭🇺{% endif %}</span>
+              <span class="material-symbols-outlined text-base text-deep-green" aria-hidden="true">expand_more</span>
+          </summary>
+          <ul class="absolute right-0 mt-2 w-max rounded-lg bg-white shadow-lg ring-1 ring-black/5 py-1">
+              <li>
+                  <a class="flex items-center gap-2 px-4 py-2 hover:bg-deep-green/10 {% if CURRENT_LANGUAGE == 'hu' %}font-bold{% endif %}"
+                      href="{% language_url 'hu' %}" hreflang="hu" lang="hu"
+                      {% if CURRENT_LANGUAGE == 'hu' %}aria-current="true"{% endif %}>🇭🇺 <span class="text-sm">Magyar</span></a>
+              </li>
+              <li>
+                  <a class="flex items-center gap-2 px-4 py-2 hover:bg-deep-green/10 {% if CURRENT_LANGUAGE == 'sk' %}font-bold{% endif %}"
+                      href="{% language_url 'sk' %}" hreflang="sk" lang="sk"
+                      {% if CURRENT_LANGUAGE == 'sk' %}aria-current="true"{% endif %}>🇸🇰 <span class="text-sm">Slovenčina</span></a>
+              </li>
+              <li>
+                  <a class="flex items-center gap-2 px-4 py-2 hover:bg-deep-green/10 {% if CURRENT_LANGUAGE == 'en' %}font-bold{% endif %}"
+                      href="{% language_url 'en' %}" hreflang="en" lang="en"
+                      {% if CURRENT_LANGUAGE == 'en' %}aria-current="true"{% endif %}>🇬🇧 <span class="text-sm">English</span></a>
+              </li>
+          </ul>
+      </details>
+      <script>
+          document.addEventListener("click", function (event) {
+              var dropdown = document.getElementById("language-dropdown");
+              if (dropdown && !dropdown.contains(event.target)) {
+                  dropdown.removeAttribute("open");
+              }
+          });
+      </script>
       <button class="md:hidden text-deep-green ">
           <span class="material-symbols-outlined">menu</span>
       </button>

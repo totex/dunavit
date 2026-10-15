@@ -1,13 +1,13 @@
 {% load wagtailcore_tags %}
 
-<main class="flex-grow">
+<main class="grow">
   {% comment %} Hero {% endcomment %}
   <div class="relative flex h-auto w-full flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden"
     style="font-family: &quot;Public Sans&quot;, &quot;Noto Sans&quot;, sans-serif;">
     <div class="@container">
       <div class="@[480px]:p-4">
         <div
-          class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
+          class="flex min-h-120 flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
           data-alt="{{ page.hero_image.title }}"
           style="
             background-image:
@@ -29,12 +29,12 @@
           </div>
           <div class="flex-wrap gap-3 flex justify-center">
             <button
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90"
+              class="flex min-w-21 max-w-120 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90"
             >
               <span class="truncate">Donate Now</span>
             </button>
             <a
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-off-white text-deep-green text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-off-white/90"
+              class="flex min-w-21 max-w-120 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-off-white text-deep-green text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-off-white/90"
               href="#about-us"
             >
               <span class="truncate">Learn More</span>
@@ -121,7 +121,7 @@
             </p>
           </div>
           <button
-            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-deep-green text-off-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit hover:opacity-90"
+            class="flex min-w-21 max-w-120 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-deep-green text-off-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit hover:opacity-90"
           >
             <span class="truncate">Explore Our Projects</span>
           </button>
@@ -185,7 +185,7 @@
         </div>
         <div class="flex flex-1 justify-center">
           <label
-            class="flex flex-col min-w-40 h-14 max-w-[480px] flex-1 @[480px]:h-16"
+            class="flex flex-col min-w-40 h-14 max-w-120 flex-1 @[480px]:h-16"
           >
             <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
               <input
@@ -197,7 +197,7 @@
                 class="flex items-center justify-center rounded-r-lg border-l-0 border-none bg-off-white pr-2"
               >
                 <button
-                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90"
+                  class="flex min-w-21 max-w-120 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90"
                 >
                   <span class="truncate">Subscribe</span>
                 </button>

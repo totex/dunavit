@@ -37,6 +37,19 @@ class HomePage(Page):
 
     mission_body = RichTextField()
 
+    work_title = models.CharField(
+        max_length=255,
+        default="Our Work",
+    )
+
+    work_text = models.TextField(
+        default=(
+            "Our conservation efforts span across various critical areas, "
+            "from protecting our forests to safeguarding marine life and "
+            "empowering local communities."
+        ),
+    )
+
     testimonial_quote = models.TextField()
     testimonial_author = models.CharField(max_length=255)
 
@@ -58,6 +71,8 @@ class HomePage(Page):
         InlinePanel("impact_items", label="Impact items"),
         FieldPanel("mission_title"),
         FieldPanel("mission_body"),
+        FieldPanel("work_title"),
+        FieldPanel("work_text"),
         InlinePanel("work_items", label="Work items"),
         FieldPanel("testimonial_quote"),
         FieldPanel("testimonial_author"),

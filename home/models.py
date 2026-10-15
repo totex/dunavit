@@ -17,6 +17,19 @@ class HomePage(Page):
         related_name="+",
     )
 
+    impact_title = models.CharField(
+        max_length=255,
+        default="Our Impact",
+    )
+
+    impact_text = models.TextField(
+        default=(
+            "We are making a tangible difference in the fight to protect "
+            "our planet. Here's a glimpse of what we've achieved with "
+            "the help of our dedicated supporters."
+        ),
+    )
+
     mission_title = models.CharField(
         max_length=255,
         default="More About Our Mission",
@@ -40,6 +53,8 @@ class HomePage(Page):
         FieldPanel("hero_title"),
         FieldPanel("hero_text"),
         FieldPanel("hero_image"),
+        FieldPanel("impact_title"),
+        FieldPanel("impact_text"),
         InlinePanel("impact_items", label="Impact items"),
         FieldPanel("mission_title"),
         FieldPanel("mission_body"),
